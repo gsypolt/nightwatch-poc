@@ -1,0 +1,73 @@
+{
+  "src_folders" : ["tests"],
+  "output_folder" : "reports",
+  "custom_commands_path" : "lib/custom-commands",
+  "custom_assertions_path" : "",
+  "page_objects_path" : "lib/page-objects",
+  "globals_path" : "bin/globals.js",
+  "disable_colors": false,
+
+  "selenium" : {
+    "start_process" : false,
+    "server_path" : "bin/selenium-server-standalone-2.53.0.jar",
+    "log_path" : "",
+    "host" : "127.0.0.1",
+    "port" : 4444,
+    "cli_args" : {
+      "webdriver.chrome.driver" : "",
+      "webdriver.ie.driver" : ""
+    }
+  },
+
+  "test_workers" : {"enabled" : true, "workers" : "auto"},
+
+  "test_settings" : {
+    "default" : {
+      "launch_url" : "http://www.usatoday.com",
+      "selenium_port"  : 4444,
+      "selenium_host"  : "localhost",
+      "silent": true,
+      "screenshots" : {
+        "enabled" : false,
+        "path" : ""
+      },
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
+      },
+      "selenium" : {
+        "start_process" : true
+      }
+    },
+
+    "saucelabs" : {
+      "selenium_host" : "ondemand.saucelabs.com",
+      "selenium_port" : 80,
+      "username" : "${SAUCE_USERNAME}",
+      "access_key" : "${SAUCE_ACCESS_KEY}",
+      "use_ssl" : false,
+      "silent" : true,
+      "output" : true,
+      "build" : "${CI_BUILD}",
+      "screenshots" : {
+        "enabled" : false,
+        "on_failure" : true,
+        "path" : ""
+      },
+      "desiredCapabilities": {
+        "platform": "OS X 10.10",
+        "browserName": "chrome",
+        "version": "48",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
+      },
+      "globals" : {
+        "waitForConditionTimeout" : 10000
+      },
+      "selenium" : {
+        "start_process" : false
+      }
+    }
+  }
+}
